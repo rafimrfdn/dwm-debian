@@ -1,4 +1,4 @@
-Install Debian 11 Bullseye then clone this repo.
+Install Debian any version, I use Debian SID then clone this repo.
 
 ## First app setup 
 

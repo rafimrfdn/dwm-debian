@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 0};
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -13,8 +13,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 //static const char *fonts[]          = { "monospace:size=10" };
 //static const char dmenufont[]       = "monospace:size=10";
-static const char *fonts[] = { "SF Pro Display:style=Medium:size=10", "FontAwesome:size=12" };
-static const char dmenufont[] = "SF Pro Display:style=Medium:size=10";
+static const char *fonts[] = { "SF Pro Display:style=Bold:size=10", "FontAwesome:size=12", };
+static const char dmenufont[] = "SF Pro Display:style=Bold:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -24,7 +24,7 @@ static const char col_cyan[]        = "#6885a2";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_gray1,  col_gray1 },
 };
 
 /* tagging */
@@ -73,7 +73,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "kitty", NULL };
 
 /* powermenu */
-static const char *powermenu[] = { "~/.scripts/powermenu.sh", NULL };
+static const char *powermenu[] = { "/home/debian/.scripts/powermenu.sh", NULL };
 
 #include <X11/XF86keysym.h>
 
@@ -119,10 +119,6 @@ static Key keys[] = {
 
     // ------------------- Apps --------------------
 
-    // monitor switch using Arandr
-    //{ MODKEY, XK_p, spawn, SHCMD("~/.screenlayout/externalmonitor.sh") },
-    //{ MODKEY|ShiftMask, XK_p, spawn, SHCMD("~/.screenlayout/defaultmonitor.sh") },
-
     // dmenu
     //{ MODKEY|ShiftMask, XK_Return, spawn, {.v = dmenucmd } },
 
@@ -142,11 +138,7 @@ static Key keys[] = {
     { MODKEY, XK_e, spawn, SHCMD("pcmanfm") },
 
     // Browser
-    { MODKEY, XK_w, spawn, SHCMD("chromium") },
-
-    // Redshift
-    { MODKEY, XK_r, spawn, SHCMD("redshift -O 2400") },
-    { MODKEY|ShiftMask, XK_r, spawn, SHCMD("redshift -x") },
+    { MODKEY, XK_w, spawn, SHCMD("brave-browser") },
 
     // Screenshot
     { 0, XK_Print,  spawn, SHCMD("scrot 'scrot_%Y-%m-%d_%X.png' -e 'mv $f ~/Pictures/'") },
